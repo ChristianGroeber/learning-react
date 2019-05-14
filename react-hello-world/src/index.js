@@ -29,14 +29,15 @@ const greetTheNiceMan = (villain) => {
     }
 };
 
-const element = (
-    <h1>
-        {greetTheNiceMan(villain)} - {formatUser(person)}
-        {greetTheNiceMan(niceMan)} - {formatUser(person)}
-    </h1>
-);
+let count = 1;
+const tick = () => {
+    const element = (
+        <div className={person.name}>
+            <h2>{count}</h2>
+        </div>
+    );
+    count++;
+    ReactDom.render(element, document.getElementById('root'));
+};
 
-ReactDom.render(
-    element,
-    document.getElementById('root')
-);
+setInterval(tick, 1000);
