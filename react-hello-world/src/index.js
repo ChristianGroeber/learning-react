@@ -1,12 +1,19 @@
 import React from 'react';
 import * as ReactDom from "react-dom";
 
-class Welcome extends React.Component{
-    render(){
-        return <h1>Hello there - {this.props.title} {this.props.name}</h1>;
-    }
-}
+const Welcome = (props) => {
+    return(
+        <h1>Hello there - {props.title} {props.name}</h1>
+    )
+};
 
-const element = <Welcome title="General" name="Kenobi"/>;
+const App = () => {
+    return (
+        <div>
+            <Welcome name="Yoda" title="JediMaster"/>
+            <Welcome name="Kenobi" title="General"/>
+        </div>
+    );
+};
 
-ReactDom.render(element, document.getElementById('root'));
+ReactDom.render(<App/>, document.getElementById('root'));
